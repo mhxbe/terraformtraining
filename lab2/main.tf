@@ -1,6 +1,6 @@
 #Create and bootstrap webserver
 resource "aws_instance" "webserver" {
-  ami                         = data.aws_ssm_parameter.webserver-ami.value
+  ami                         = "ami-01cc34ab2709337aa"
   instance_type               = "t3.micro"
   key_name                    = aws_key_pair.webserver-key.key_name
   associate_public_ip_address = true
@@ -15,7 +15,7 @@ resource "aws_instance" "webserver" {
     connection {
       type        = "ssh"
       user        = "ec2-user"
-      private_key = file("~/.ssh/id_rsa")
+      private_key = file("./id_rsa")
       host        = self.public_ip
     }
   }

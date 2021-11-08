@@ -8,12 +8,6 @@ resource "aws_key_pair" "webserver-key" {
   public_key = file("./id_rsa.pub")
 }
 
-
-#Get Linux AMI ID using SSM Parameter endpoint in us-east-1
-data "aws_ssm_parameter" "webserver-ami" {
-  name = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
-}
-
 #Create VPC in us-east-1
 resource "aws_vpc" "vpc" {
   cidr_block           = "10.0.0.0/16"
