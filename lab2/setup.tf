@@ -4,7 +4,7 @@ provider "aws" {
 
 #Create key-pair for logging into EC2 in us-east-1
 resource "aws_key_pair" "webserver-key" {
-  key_name   = "webserver-key"
+  key_name   = "webserver-key-mikey"
   public_key = file("./id_rsa.pub")
 }
 
@@ -14,7 +14,7 @@ resource "aws_vpc" "vpc" {
   enable_dns_support   = true
   enable_dns_hostnames = true
   tags = {
-    Name = "terraform-vpc"
+    Name = "terraform-vpc-mikey"
   }
 
 }
@@ -43,7 +43,7 @@ resource "aws_default_route_table" "internet_route" {
     gateway_id = aws_internet_gateway.igw.id
   }
   tags = {
-    Name = "Terraform-RouteTable"
+    Name = "Terraform-RouteTable-Mikey"
   }
 }
 
