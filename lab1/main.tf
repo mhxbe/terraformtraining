@@ -5,6 +5,6 @@ resource "aws_instance" "vm" {
   ami           = "ami-01cc34ab2709337aa"
   instance_type = "t3.micro"
   tags = {
-    Name = "my-first-tf-node"
+    Name = "vm-mikey-mike-ging-eens-naar-de-maan"
   }
 }
