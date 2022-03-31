@@ -35,7 +35,7 @@ resource "aws_security_group" "my-sg" {
   }
 
   tags = {
-    Name = "Terraform-Dynamic-SG"
+    Name = "Terraform-Dynamic-SG-Mikey"
   }
 }
 
@@ -45,4 +45,8 @@ resource "aws_instance" "my-instance" {
   instance_type   = "t3.micro"
   security_groups = [aws_security_group.my-sg.id]
   user_data       = fileexists("script.sh") ? file("script.sh") : null
+
+  tags = {
+    Name = "Terraform-Dynamic-instance-Mikey"
+  }
 }
